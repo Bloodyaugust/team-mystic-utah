@@ -1,0 +1,84 @@
+$mobile-width: 411px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin button($backgroundColor:#2196F3, $textColor:white) {
+  background-color: $backgroundColor;
+  border-radius: 4px;
+  color: $textColor;
+  cursor: pointer;
+  line-height: 2;
+  min-width: 100px;
+  padding: 4px;
+  text-align: center;
+  user-select: none;
+  @include no-select;
+
+  &:hover {
+    background-color: lighten($backgroundColor, 10%);
+  }
+  &:active {
+    background-color: darken($backgroundColor, 10%);
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin mobile {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

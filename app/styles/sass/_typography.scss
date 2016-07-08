@@ -1,0 +1,51 @@
+* {
+  font-family: 'Oswald', sans-serif;
+  @include font-size(14px);
+}
+
+h1 {
+  @include font-size(108px);
+}
+h2 {
+  @include font-size(22px);
+}
+h3 {
+  @include font-size(22px);
+}
+h4 {
+  @include font-size(18px);
+}
+h5 {
+  @include font-size(14px);
+}
+h6 {
+  @include font-size(12px);
+}
+
+.current .card-title {
+  @include font-size(32px);
+}
+
+.current i, .weather-attribute, .weather-status {
+  @include font-size(30px);
+
+  @include mobile {
+    @include font-size(20px);
+  }
+}
+
+.geolocation p {
+  @include font-size(20px);
+}
+
+.weather-summary {
+  @include font-size(30px);
+}
+
+.weather-status i {
+  @include font-size(60px);
+}
+
+.weather-short-attributes, .weather-short-attributes span {
+  @include font-size(20px);
+}
